@@ -1,14 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://gamingaccesshub.com/sitemap.xml
-
-# Block any admin or private areas (if they exist in future)
-Disallow: /admin/
-Disallow: /api/
-
-# Allow all other content
-Allow: /
-Allow: /privacy-policy
-Allow: /terms-conditions
+Sitemap: https://www.google.com/search?q=https://lotesbook.store/sitemap.xml

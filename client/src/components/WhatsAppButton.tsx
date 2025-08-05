@@ -1,7 +1,9 @@
 import { MessageCircle } from "lucide-react";
+import { trackConversion } from "@/lib/utils"; // Import the function
 
 export default function WhatsAppButton() {
   const handleWhatsAppClick = () => {
+    trackConversion(); // Call the conversion tracking function
     const message = encodeURIComponent("Hello! I want to get my Digital Book ID for reading platform access. Please help me get started.");
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "1234567890";
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, UserCheck, Book, Search, Bookmark, Library } from "lucide-react";
+import { trackConversion } from "@/lib/utils"; // Import the function
 
 export default function HowItWorks() {
   const steps = [
@@ -48,6 +49,7 @@ export default function HowItWorks() {
   ];
 
   const handleWhatsAppClick = () => {
+    trackConversion(); // Call the conversion tracking function
     const message = encodeURIComponent("Hello! I want to start the Digital Book ID registration process.");
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "1234567890";
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');

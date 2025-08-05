@@ -1,8 +1,10 @@
 import { Link } from "wouter";
 import { MessageCircle, Send, Instagram, Shield, ShieldQuestion } from "lucide-react";
+import { trackConversion } from "@/lib/utils"; // Import the function
 
 export default function Footer() {
   const handleWhatsAppClick = () => {
+    trackConversion(); // Call the conversion tracking function
     const message = encodeURIComponent("Hello! I'm interested in your Digital Book ID services.");
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "1234567890";
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');

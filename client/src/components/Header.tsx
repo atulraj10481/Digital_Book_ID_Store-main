@@ -2,12 +2,14 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X, MessageCircle } from "lucide-react";
+import { trackConversion } from "@/lib/utils"; // Import the function
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [location] = useLocation();
 
   const handleWhatsAppClick = () => {
+    trackConversion(); // Call the conversion tracking function
     const message = encodeURIComponent("Hello! I want to get my Digital Book ID and start reading. Please help me get started.");
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "1234567890";
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');

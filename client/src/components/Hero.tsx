@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Star, Shield, Zap, Book } from "lucide-react";
+import { trackConversion } from "@/lib/utils"; // Import the function
 
 export default function Hero() {
   const handleWhatsAppClick = () => {
+    trackConversion(); // Call the conversion tracking function
     const message = encodeURIComponent("Hello! I want to get my Digital Book ID for premium reading access. Please provide me with the details.");
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "1234567890";
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');

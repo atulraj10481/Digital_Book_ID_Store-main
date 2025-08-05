@@ -6,10 +6,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
-import { MessageCircle, Send, Clock, Shield, Phone } from "lucide-react";
-
-// --- DEBUG LINE ADDED HERE ---
-console.log("Reading VITE_WHATSAPP_NUMBER:", import.meta.env.VITE_WHATSAPP_NUMBER);
+import { MessageCircle, Send, Clock, Shield } from "lucide-react";
+import { trackConversion } from "@/lib/utils"; // Import the function
 
 export default function Contact() {
   const { toast } = useToast();
@@ -23,6 +21,7 @@ export default function Contact() {
   } = useForm();
 
   const handleWhatsAppClick = () => {
+    trackConversion(); // Call the conversion tracking function
     const message = encodeURIComponent("Hello! I want to get my Digital Book ID and would like to speak with support.");
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "1234567890";
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
@@ -44,7 +43,6 @@ export default function Contact() {
   };
 
   return (
-    // ... JSX code remains the same
     <section id="contact" className="py-20 bg-black relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900/50 to-black/50"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
